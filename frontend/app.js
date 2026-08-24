@@ -358,6 +358,10 @@ route(/^#\/show\/([^?]+)(?:\?event=(.+))?$/, async (app, showId, eventId) => {
   }
 
   function showConfirmation(result) {
+    if (result.emailPreviewUrl) {
+      window.open(result.emailPreviewUrl, "_blank");
+    }
+    
     document.getElementById('app').innerHTML = `
       <div class="eyebrow">Booked</div>
       <h1>You're in.</h1>
